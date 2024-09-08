@@ -26,7 +26,7 @@ const Timeline: React.FC<EventProps> = ({event}) => {
          >
       <Image src={banner1} alt='banner' width={420} className=' scale-110'/>
       <div className="vertical-timeline-element-date">
-          <h4 className="custom-heading text-[24px] font-bold">Copy the URL</h4>
+          <h4 className="custom-heading text-[24px] max-[650px]:text-xl font-bold">Copy the URL</h4>
           <span className="custom-span">{event[0].text}</span>
      </div>
       </VerticalTimelineElement>
@@ -35,9 +35,9 @@ const Timeline: React.FC<EventProps> = ({event}) => {
         iconStyle={{ background: '#EF4444', color: '#fff' }}
         icon={<div className='text-center' style={{ fontSize: 25, fontWeight: 'bold' }}>{2}</div>}
          >
-      <Image src={banner2} alt='banner' width={420} className=' scale-150'/>
+      <Image src={banner2} alt='banner' width={420} className=' scale-150 max-[650px]:scale-125'/>
       <div className="vertical-timeline-element-date my-10">
-          <h4 className="custom-heading text-[24px] font-bold">Paste the URL on Instaloader</h4>
+          <h4 className="custom-heading text-[24px] max-[650px]:text-xl font-bold">Paste the URL on Instaloader</h4>
           <span className="custom-span">{event[1].text}</span>
      </div>
       </VerticalTimelineElement>
@@ -48,7 +48,7 @@ const Timeline: React.FC<EventProps> = ({event}) => {
          >
       <Image src={banner3} alt='banner' width={420} className=' lg:scale-125'/>
       <div className="vertical-timeline-element-date">
-          <h4 className="custom-heading text-[24px] font-bold">Download the File</h4>
+          <h4 className="custom-heading text-[24px] max-[650px]:text-xl font-bold">Download the File</h4>
           <span className="custom-span">{event[2].text}</span>
      </div>
       </VerticalTimelineElement>

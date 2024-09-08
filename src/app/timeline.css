@@ -58,4 +58,7 @@
     .vertical-timeline-element-icon{
       margin-left: auto !important;
     }
+    .vertical-timeline{
+      width: 90% !important;
+    }
   }

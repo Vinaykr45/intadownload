@@ -128,7 +128,7 @@ target:'/video'
   <div className="w-full h-[24rem] max-[650px]:h-[30rem] bg-gradient-to-r from-red-500 to-orange-500">
      <div className="flex flex-col justify-center items-center">
         <div className="pt-10">
-          <div className="flex text-white gap-8 bg-white bg-opacity-25 p-4 px-10 rounded-md">
+          <div className="flex text-white gap-8 bg-white bg-opacity-25 p-4 lg:px-10 rounded-md">
             {
               elemets.map((items,index)=>
               <>
@@ -155,7 +155,7 @@ target:'/video'
         
          {
           url.length===0 ? <button onClick={handlePaste} className="flex items-center lg:w-[18%] max-[650px]:w-[30%] justify-center text h-[4.5rem]  rounded-md bg-gray-200 gap-2"><FaPaste/>Paste</button>:
-          <button onClick={handleClear} className="flex items-center lg:w-[18%] justify-center text h-[4.5rem]  rounded-md bg-gray-200 gap-2"><RxCross2/>Clear</button>
+          <button onClick={handleClear} className="flex items-center lg:w-[18%] max-[650px]:w-[30%] justify-center text h-[4.5rem]  rounded-md bg-gray-200 gap-2"><RxCross2/>Clear</button>
          }
         
          <div className="max-[650px]:hidden w-[20%] pr-2">
