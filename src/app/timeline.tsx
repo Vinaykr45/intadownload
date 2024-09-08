@@ -16,7 +16,7 @@ const Timeline: React.FC<EventProps> = ({event}) => {
   return (
     <>
     <div className='my-6'>
-      <h1 className='text-[30px] font-bold text-blue-700 text-center'>HOW TO DOWNLOAD VIDEO FROM INSTAGRAM?</h1>
+      <h1 className='text-[30px] max-[650px]:text-xl font-bold text-blue-700 text-center'>HOW TO DOWNLOAD VIDEO FROM INSTAGRAM?</h1>
     </div>
     <VerticalTimeline lineColor='#F97317'>
       <VerticalTimelineElement

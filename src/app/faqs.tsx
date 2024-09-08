@@ -69,7 +69,7 @@ console.log(contents)
 return (
 <>
 <div className='mt-14'>
-      <h1 className='text-[30px] font-bold text-blue-700 text-center'>Frequently asked questions(FAQ)</h1>
+      <h1 className='text-[30px] max-[650px]:text-xl font-bold text-blue-700 text-center'>Frequently asked questions(FAQ)</h1>
     </div>
 <div className='flex items-center justify-center'> 
   <div className='flex items-center justify-center lg:w-[60%] max-[700px]:w-[90%]'>   

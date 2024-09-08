@@ -125,7 +125,7 @@ target:'/video'
 
   return (
    <>
-  <div className="w-full h-[24rem] bg-gradient-to-r from-red-500 to-orange-500">
+  <div className="w-full h-[24rem] max-[650px]:h-[30rem] bg-gradient-to-r from-red-500 to-orange-500">
      <div className="flex flex-col justify-center items-center">
         <div className="pt-10">
           <div className="flex text-white gap-8 bg-white bg-opacity-25 p-4 px-10 rounded-md">
@@ -134,8 +134,8 @@ target:'/video'
               <>
               <Link href={items.target} className="flex items-center gap-5 justify-center">
                <div className="flex justify-center items-center gap-2">
-                 {items.image}
-                 <span>{items.name}</span>
+                 <span>{items.image}</span>
+                 <span className="max-[700px]:hidden">{items.name}</span>
                </div>
               {
                 index===4 ?  null : <div className="h-[100%] w-[1px] bg-white"></div>
@@ -146,21 +146,31 @@ target:'/video'
             }
           </div>
         </div>
-        <div className="flex flex-col justify-center items-center gap-4 pt-10">
-          <h1 className="text-white font-bold text-3xl">Instagram Downloader</h1>
+        <div className="flex flex-col justify-center items-center text-center gap-4 pt-10">
+          <h1 className="text-white font-bold max-[650px]:text-xl text-3xl">Instagram Downloader</h1>
           <span className="text-white font-bold text-xl">Download Video, Reels, Photo, IGTV, carousel from Instagram</span>
         </div>
         <div className="flex mt-8 items-center lg:w-[40rem] max-[700px]:w-[90vw] h-[6rem] gap-2 bg-white rounded-md">
           <input type="text" value={url} onChange={(e)=>seturl(e.target.value)} className="px-4 rounded-md text-lg h-[100%] w-[65%]" placeholder="Insert instagram link here" />
+        
          {
-          url.length===0 ? <button onClick={handlePaste} className="flex items-center justify-center text h-[4.5rem] w-[18%] rounded-md bg-gray-200 gap-2"><FaPaste/>Paste</button>:
-          <button onClick={handleClear} className="flex items-center justify-center text h-[4.5rem] w-[18%] rounded-md bg-gray-200 gap-2"><RxCross2/>Clear</button>
+          url.length===0 ? <button onClick={handlePaste} className="flex items-center lg:w-[18%] max-[650px]:w-[30%] justify-center text h-[4.5rem]  rounded-md bg-gray-200 gap-2"><FaPaste/>Paste</button>:
+          <button onClick={handleClear} className="flex items-center lg:w-[18%] justify-center text h-[4.5rem]  rounded-md bg-gray-200 gap-2"><RxCross2/>Clear</button>
          }
+        
+         <div className="max-[650px]:hidden w-[20%] pr-2">
           {
-            show ? <button className="bg-blue-500 h-[4.5rem] w-[20%] mr-2 rounded-md text-white" onClick={handelSubmit}>Download</button> :
-            <button className="bg-gray-400 h-[4.5rem] w-[20%] mr-2 rounded-md text-white" disabled>Download</button>
+            show ? <button className="bg-blue-500 h-[4.5rem] mr-2 w-full rounded-md text-white" onClick={handelSubmit}>Download</button> :
+            <button className="bg-gray-400 h-[4.5rem] w-full mr-2 rounded-md text-white" disabled>Download</button>
           }
+          </div>
         </div>
+        <div className="w-full text-center my-4 lg:hidden">
+          {
+            show ? <button className="bg-blue-500 h-[4.5rem]  w-[90vw] rounded-md text-white" onClick={handelSubmit}>Download</button> :
+            <button className="bg-gray-400 h-[4.5rem]  w-[90vw] rounded-md text-white" disabled>Download</button>
+          }
+          </div>
      </div>
   </div>
   <div className="w-[100%]">
