@@ -48,7 +48,7 @@ export default function Home() {
   const handelSubmit = async() => {
      try {
       setshow(false)
-      const fetch = await axios.post('https://instadawnload.onrender.com/download',{url})
+      const fetch = await axios.post('http://127.0.0.1:5000/download',{url})
       // console.log(fetch.data[0])
       setdata(fetch.data)
       setshow(false)
@@ -64,7 +64,7 @@ export default function Home() {
 
   const handleinput = () => {
     const check = url.includes('https://www.instagram.com/p') || url.includes('https://www.instagram.com/reel') ||
-    url.includes('https://www.instagram.com/stories') || url.includes('https://www.instagram.com/tv')
+    url.includes('https://www.instagram.com/stories') || url.includes('https://www.instagram.com/tv') || url.length>1
     if (check){
       setshow(true)
       seterror(false)
