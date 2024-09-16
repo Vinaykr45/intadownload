@@ -1,4 +1,5 @@
-import Home from "../page";
+import Audio_home from "./audio_home";
+
 export default function RootLayout({
     children,
   }: Readonly<{
@@ -6,7 +7,7 @@ export default function RootLayout({
   }>) {
     return (
       <div>
-      <Home/>
+      <Audio_home/>
       {children}
       </div>
     );

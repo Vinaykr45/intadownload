@@ -6,7 +6,7 @@ import Timeline from '../timeline'
 import Info from '../info';
 import { useEffect } from 'react';
 import Faqs from '../faqs';
-const Stories = () => {
+const Audio = () => {
 
   const events:any[] = [
     {id:1,
@@ -150,4 +150,4 @@ const Stories = () => {
   )
 }
 
-export default Stories
+export default Audio

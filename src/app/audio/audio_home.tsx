@@ -1,131 +1,129 @@
-"use client";
-import Image from "next/image";
+"use client"
+import React from 'react'
 import { RxCross2 } from "react-icons/rx";
 import { useEffect, useState } from "react";
 import { FaPaste } from "react-icons/fa";
 import axios from "axios";
 import { usePathname } from "next/navigation";
-import Instruction from "./instruction";
-import Preview from "./preview";
 import { Audio,Hourglass } from 'react-loader-spinner'
 import { RiFolderVideoLine } from "react-icons/ri";
 import { MdOutlineSlowMotionVideo } from "react-icons/md";
 import { HiOutlinePhotograph } from "react-icons/hi";
 import Link from "next/link";
+import Preview from './preview';
+const Audio_home = () => {
 
-
-export default function Home() {
-
-  const [url,seturl] = useState('');
-  const [data,setdata] = useState([]);
-  const [show,setshow] = useState(true)
-  const [home,sethome] = useState(true)
-  const [error,seterror] = useState(false)
-  const [errmesg,seterrmesg] = useState('')
-  const handlePaste = async () => {
-    try {
-      const text = await navigator.clipboard.readText();
-      seturl(text);
-    } catch (err) {
-      console.error('Failed to read clipboard contents: ', err);
-    }
-  };
-
- const pathname = usePathname();
- 
- useEffect(()=>{
-  if (pathname!=='/') {
-    sethome(false)
-   }
- },[pathname])
-
-  const handleClear = () => {
-    seturl('');
-    setdata([]);
-    setshow(true);
-  }
-
-  const handelSubmit = async() => {
-     try {
-      setshow(false)
-      const fetch = await axios.post('http://127.0.0.1:5000/download',{url})
-      // console.log(fetch.data[0])
-      setdata(fetch.data)
-      setshow(false)
-     } catch (error:any) {
-      console.log(error.status)
-      if (error.status===500) {
-        seterror(true)
-        seterrmesg('Something went wrong please try again !')
+    const [url,seturl] = useState('');
+    const [data,setdata] = useState([]);
+    const [show,setshow] = useState(true)
+    const [home,sethome] = useState(true)
+    const [error,seterror] = useState(false)
+    const [errmesg,seterrmesg] = useState('')
+    const handlePaste = async () => {
+      try {
+        const text = await navigator.clipboard.readText();
+        seturl(text);
+      } catch (err) {
+        console.error('Failed to read clipboard contents: ', err);
       }
-
+    };
+  
+   const pathname = usePathname();
+   
+   useEffect(()=>{
+    if (pathname!=='/') {
+      sethome(false)
      }
-  }
-
-  const handleinput = () => {
-    const check = url.includes('https://www.instagram.com/p') || url.includes('https://www.instagram.com/reel') ||
-     url.includes('https://www.instagram.com/tv') 
-    if (check){
-      setshow(true)
-      seterror(false)
+   },[pathname])
+  
+    const handleClear = () => {
+      seturl('');
+      setdata([]);
+      setshow(true);
     }
-    if (!check){
-      setshow(false)
-      seterror(true)
-      seterrmesg('Link format is incorrect')
+  
+    const handelSubmit = async() => {
+       try {
+        setshow(false)
+        const fetch = await axios.post('http://127.0.0.1:5000/download-audio',{url})
+        // console.log(fetch.data[0])
+        setdata(fetch.data)
+        setshow(false)
+       } catch (error:any) {
+        console.log(error.status)
+        if (error.status===500) {
+          seterror(true)
+          seterrmesg('Something went wrong please try again !')
+        }
+  
+       }
+    }
+  
+    const handleinput = () => {
+      const check = url.includes('https://www.instagram.com/p') || url.includes('https://www.instagram.com/reel') ||
+       url.includes('https://www.instagram.com/tv') 
+      if (check){
+        setshow(true)
+        seterror(false)
+      }
+      if (!check){
+        setshow(false)
+        seterror(true)
+        seterrmesg('Link format is incorrect')
+      }
+      
     }
     
-  }
+  
+  useEffect(()=>{
+   if (url.length===0) {
+    setdata([]);
+    setshow(true);
+   }
+   else if (url.length!==0) {
+    handleinput();
+   }
+  
+  },[url])
   
 
-useEffect(()=>{
- if (url.length===0) {
-  setdata([]);
-  setshow(true);
- }
- else if (url.length!==0) {
-  handleinput();
- }
-
-},[url])
-
-
-const elemets:any[]=[
-{
-id:1,
-image:<RiFolderVideoLine size={20}/>,
-name:'Video',
-target:'/video'
-},
-{
-  id:2,
-  image:<HiOutlinePhotograph size={20}/>,
-  name:'Photo',
-  target:'/image'
-  },
-{
-    id:3,
-    image:<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none"><g stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3"><path d="M14.837 15.778H2.985a1.481 1.481 0 0 1-1.481-1.482V3.926a1.482 1.482 0 0 1 1.481-1.482h11.852a1.482 1.482 0 0 1 1.482 1.482v10.37a1.481 1.481 0 0 1-1.482 1.482ZM1.504 6.148h14.815M5.948 6.148l.74-3.704M11.133 6.148l.74-3.704"></path></g></svg>,
-    name:'Reels',
-    target:'/reels'
-},
-{
-  id:4,
-  image:<MdOutlineSlowMotionVideo size={20}/>,
-  name:'Audio',
-  target:'/audio'
-},
-{
-  id:5,
-  image:<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none"><g stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3"><path d="M12.76 3.482a1.58 1.58 0 0 1 1.58 1.58M13.55 1.111a3.16 3.16 0 0 1 3.16 3.16M14.34 7.433v3.95a1.58 1.58 0 0 1-1.58 1.58H3.278a1.58 1.58 0 0 1-1.58-1.58v-6.32a1.58 1.58 0 0 1 1.58-1.581h7.112M4.858 15.333h6.322"></path></g></svg>,
-  name:'IGTV',
-  target:'/igtv'
-  },
-]
+    const elemets:any[]=[
+        {
+        id:1,
+        image:<RiFolderVideoLine size={20}/>,
+        name:'Video',
+        target:'/video'
+        },
+        {
+          id:2,
+          image:<HiOutlinePhotograph size={20}/>,
+          name:'Photo',
+          target:'/image'
+          },
+        {
+            id:3,
+            image:<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none"><g stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3"><path d="M14.837 15.778H2.985a1.481 1.481 0 0 1-1.481-1.482V3.926a1.482 1.482 0 0 1 1.481-1.482h11.852a1.482 1.482 0 0 1 1.482 1.482v10.37a1.481 1.481 0 0 1-1.482 1.482ZM1.504 6.148h14.815M5.948 6.148l.74-3.704M11.133 6.148l.74-3.704"></path></g></svg>,
+            name:'Reels',
+            target:'/reels'
+        },
+        {
+          id:4,
+          image:<MdOutlineSlowMotionVideo size={20}/>,
+          name:'Audio',
+          target:'/audio'
+        },
+        {
+          id:5,
+          image:<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none"><g stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3"><path d="M12.76 3.482a1.58 1.58 0 0 1 1.58 1.58M13.55 1.111a3.16 3.16 0 0 1 3.16 3.16M14.34 7.433v3.95a1.58 1.58 0 0 1-1.58 1.58H3.278a1.58 1.58 0 0 1-1.58-1.58v-6.32a1.58 1.58 0 0 1 1.58-1.581h7.112M4.858 15.333h6.322"></path></g></svg>,
+          name:'IGTV',
+          target:'/igtv'
+          },
+        ]
+        
 
   return (
    <>
-  <div className="w-full h-[24rem] max-[650px]:h-[30rem] bg-gradient-to-r from-red-500 to-orange-500">
+    <div className="w-full h-[24rem] max-[650px]:h-[30rem] bg-gradient-to-r from-red-500 to-orange-500">
      <div className="flex flex-col justify-center items-center">
         <div className="pt-10">
           <div className="flex text-white gap-8 bg-white bg-opacity-25 p-4 lg:px-10 rounded-md">
@@ -193,12 +191,8 @@ colors={['#F0493E', '#F86E1B']}/>
      : null
   }
   </div>
-  <div>
-    {
-      home ? <Instruction/> : null
-    }
-  </div>
- 
    </>
-  );
+  )
 }
+
+export default Audio_home

@@ -84,8 +84,8 @@ const content:any[] =[
              <Image src={logo} alt='icon' className='lg:w-[250px] w-fit max-[700px]:rounded-t-lg lg:rounded-r-lg'/>
           </div>
           <div className='lg:w-[70%] p-5 lg:px-8'>
-            <h1 className='text-blue-600 text-2xl mb-4 font-bold'>Download Instagram Image and Videos</h1>
-             <p>
+            <h1 className='text-blue-600 lg:text-2xl max-[650px]:text-lg mb-4 font-bold'>Download Instagram Image and Videos</h1>
+             <p className='max-[650px]:text-md'>
              Reels Downloader, powered by FastDl, is a user-friendly tool for downloading Instagram Reels videos. Effortlessly save Reels in mp4 format to your device. To download, just copy the Reel's link from Instagram, then paste it on fastdl.app. This efficient service streamlines downloading Instagram Reels with just a few clicks.
              </p>
           </div>

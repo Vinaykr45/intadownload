@@ -11,7 +11,7 @@ const Info = () => {
         <h1 className='text-blue-600 lg:text-3xl max-[600px]:text-xl text-center mb-4 font-bold'>Choose Intaloader for download from Instagram</h1>
       </div>
       <div className='flex items-center justify-center my-8'>
-        <div className='grid grid-cols-2 mt-8 gap-y-[5rem] gap-x-[6rem] lg:w-[65%] max-[700px]:w-[90%] text-center'>
+        <div className='lg:grid grid-cols-2 max-[650px]:flex flex-col max-[650px]:gap-5 lg:mt-8 gap-y-[5rem] gap-x-[6rem] lg:w-[65%] max-[700px]:w-[90%] text-center'>
             <div className='flex items-center justify-between flex-col '>
                <FiDownload size={40}/>
                <h1 className='text-blue-600 lg:text-2xl max-[600px]:text-lg mb-4 font-bold mt-2'>Fast Downlaod</h1>
