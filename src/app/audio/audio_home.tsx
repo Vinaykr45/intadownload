@@ -45,7 +45,7 @@ const Audio_home = () => {
     const handelSubmit = async() => {
        try {
         setshow(false)
-        const fetch = await axios.post('http://127.0.0.1:5000/download-audio',{url})
+        const fetch = await axios.post('https://instadawnload.onrender.com/download-audio',{url})
         // console.log(fetch.data[0])
         setdata(fetch.data)
         setshow(false)
@@ -60,8 +60,8 @@ const Audio_home = () => {
     }
   
     const handleinput = () => {
-      const check = url.includes('https://www.instagram.com/p') || url.includes('https://www.instagram.com/reel') ||
-       url.includes('https://www.instagram.com/tv') 
+      const check = url.includes('https://www.instagram.com/reel') || url.includes('https://www.instagram.com/reels')
+      
       if (check){
         setshow(true)
         seterror(false)
