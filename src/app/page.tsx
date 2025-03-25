@@ -48,7 +48,7 @@ export default function Home() {
   const handelSubmit = async() => {
      try {
       setshow(false)
-      const fetch = await axios.post('https://insta-skwp.onrender.com/download',{url})
+      const fetch = await axios.post('https://insta-production-4f5a.up.railway.app/download',{url})
       // console.log(fetch.data[0])
       setdata(fetch.data)
       setshow(false)
