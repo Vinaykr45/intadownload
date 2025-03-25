@@ -45,7 +45,7 @@ const Audio_home = () => {
     const handelSubmit = async() => {
        try {
         setshow(false)
-        const fetch = await axios.post('https://instadawnload.onrender.com/download-audio',{url})
+        const fetch = await axios.post('https://insta-skwp.onrender.com/download-audio',{url})
         // console.log(fetch.data[0])
         setdata(fetch.data)
         setshow(false)
